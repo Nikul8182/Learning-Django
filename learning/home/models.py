@@ -9,3 +9,7 @@ class Students(models.Model):
 
 class Product(models.Model):
     pass
+
+class Cars(models.Model):
+    car_name = models.CharField(max_length=500)
+    speed = models.IntegerField(default=50)
