@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block start %}
+
+        <!-- <h1>This is demo index page learning Django.</h1> -->
+        <p class="text-2xl text-orange-600 font-bold">This is demo index page learning Django.</p>
+        
+        <!-- {{ students }} -->
+
+        <table class="border-separate border border-spacing-1 border-slate-500 ...">
+            <thead>
+                <tr>
+                    <th class="border border-slate-600 ...">S. No</th>
+                    <th class="border border-slate-600 ...">Student Name</th>
+                    <th class="border border-slate-600 ...">Course</th>
+                    <th class="border border-slate-600 ...">Age</th>
+                    <th class="border border-slate-600 ...">Division</th>
+                    <th class="border border-slate-600 ...">Can Vote</th>
+                </tr>
+            </thead>
+            {% for student in students %}
+            <tbody>
+              <tr>
+                <td class="border border-slate-700 ...">{{ forloop.counter }}</td>
+                <td class="border border-slate-700 ...">{{ student.stdname }}</td>
+                <td class="border border-slate-700 ...">{{ student.course }}</td>
+                <td class="border border-slate-700 ...">{{ student.age }}</td>
+                <td class="border border-slate-700 ...">{{ student.div }}</td>
+                <td class="border border-slate-700 text-white {% if student.age <= 18 %} bg-red-500 {% else %} bg-green-500 {% endif %}" >
+                    {% if student.age >= 18 %}
+                    👍🏼 Can vote
+                    {% else %}
+                    👎🏼 Can not vote
+                    {% endif %}
+                </td> 
+              </tr>
+            </tbody>
+            {% endfor %}
+          </table>
+          
+    
+    </body>
+</html>
+
+{% endblock %}
